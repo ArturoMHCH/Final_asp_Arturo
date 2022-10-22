@@ -1,24 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Supermercado";
 }
-<p align="right"><a asp-controller="Carrito" asp-action="Index">Ver carrito</a></p>
-<table border="1">
-    <tr>
+<div class="row">
+    <div class="col-12">
+      <p align="right"><a asp-controller="Carrito" asp-action="Index">Ver carrito</a></p>
+      <table border="1">
+      <tr>
         <th>ID</th>
         <th>Nombre</th>
         <th>Precio</th>
         <th>Imagen</th>
-    </tr>
         <th>Acción</th>
-    @foreach (Producto p in ViewBag.prods)
-    {
+      </tr>
+        
+      @foreach (Producto p in ViewBag.prods)
+      {
         <tr>
             <td>@p.id</td>
             <td>@p.nombre</td>
             <td>@p.precio</td>
             <td><img src="~/imagenes/@p.imagen" width="100" /></td>
-            <td><a asp-controller="Carrito" asp-action="Comprar" asp-route-idprod="@p.id">Comprar</a></td>
+            <td><a asp-controller="Carrito" asp-action="Comprar" asp-route-idprod="@p.id">Comprar ahora</a></td>
         </tr>
-    }
-</table>
-
+      }
+     </table>
+    </div>
+</div>
