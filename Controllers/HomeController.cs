@@ -21,6 +21,8 @@ namespace FINALASPNET.Controllers
         [Route("index")]
         public IActionResult Index()
         {
+            ModelProductos Modelproducto = new ModelProductos();
+            ViewBag.prods = Modelproducto.getTodo();
             return View();
         }
 
