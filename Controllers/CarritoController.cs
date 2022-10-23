@@ -79,7 +79,15 @@ namespace FINALASPNET.Controllers
         {
             List<Elemento> carrito = Conversor.RecuperarObjeto<List<Elemento>>(HttpContext.Session, "carrito");
             int indice = existe(idprod);
-            carrito.RemoveAt(indice);
+            if(carrito[indice].cantidad>1)
+            {
+                carrito[indice].cantidad--;
+            }
+            else
+            {
+                carrito.RemoveAt(indice);
+            }
+            
             Conversor.GuardarObjeto(HttpContext.Session, "carrito", carrito);
             return RedirectToAction("Index");
         }
