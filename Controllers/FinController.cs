@@ -7,7 +7,7 @@ namespace FINALASPNET.Controllers
 {
     public class FinController : Controller
     {
-        [Route("Index/{total}")]
+        [Route("Fin/{total}")]
         public IActionResult Index(double total)
         {
             List<Elemento> carrito = Conversor.RecuperarObjeto<List<Elemento>>(HttpContext.Session, "carrito");

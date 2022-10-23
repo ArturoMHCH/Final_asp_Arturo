@@ -14,8 +14,24 @@ namespace FINALASPNET.Controllers
         public IActionResult Index() //Estado del carrito & botón compra
         {
             List<Elemento> carrito = Conversor.RecuperarObjeto<List<Elemento>>(HttpContext.Session, "carrito");
-            ViewBag.carr = carrito;
-            ViewBag.total = carrito.Sum(it => it.producto.precio * it.cantidad);
+            if (carrito == null)
+            {
+                ViewBag.vacio = "No realizo ninguna compra";
+            }
+            else
+            {
+                if (carrito.Count==0)
+                {
+                    ViewBag.vacio = "Su carrito esta vacio";
+                }
+                else
+                {
+                    ViewBag.vacio = "no";
+                    ViewBag.carr = carrito;
+                    ViewBag.total = carrito.Sum(it => it.producto.precio * it.cantidad);
+                }
+
+            }
             return View();
         }
         [Route("Comprar/{idprod}")]
