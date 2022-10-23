@@ -41,7 +41,7 @@
         <div class="col-12">
             <p align="right">
                 <a asp-controller="Home" asp-action="Index">Volver atras  </a>
-                <a asp-controller="Fin" asp-action="Index">Finalizar compra</a>
+                <a asp-controller="Fin" asp-action="Index" asp-route-total="@ViewBag.total">Finalizar compra</a>
             </p>
         </div>
     </div>

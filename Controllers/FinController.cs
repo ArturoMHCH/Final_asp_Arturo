@@ -4,9 +4,10 @@ namespace FINALASPNET.Controllers
 {
     public class FinController : Controller
     {
-        [HttpGet]
-        public IActionResult Index()
+        [Route("Index/{total}")]
+        public IActionResult Index(double total)
         {
+            ViewBag.total = total;
             return View();
         }
     }
