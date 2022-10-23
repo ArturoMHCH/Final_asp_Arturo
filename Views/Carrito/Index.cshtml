@@ -16,7 +16,7 @@
                     </tr>
                     @foreach (Elemento item in ViewBag.carr)
                     {
-                        <tr>
+                        <tr valign="top">
                             <td>@item.producto.nombre</td>
                             <td><img src="~/imagenes/@item.producto.imagen" width="100" /></td>
                             <td>@item.producto.precio</td>
@@ -28,7 +28,7 @@
                         </tr>
                     }
                     <tr>
-                        <td colspan="6" align="right">Total: </td>
+                        <td colspan="5" align="right">Total: </td>
                         <td>@ViewBag.total</td>
                     </tr>
 
@@ -40,7 +40,7 @@
     <div class="row">
         <div class="col-12">
             <p align="right">
-                <a asp-controller="Home" asp-action="Index">Volver atras </a>
+                <a asp-controller="Home" asp-action="Index">Volver atras  </a>
                 <a asp-controller="Fin" asp-action="Index">Finalizar compra</a>
             </p>
         </div>
