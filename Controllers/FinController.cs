@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FINALASPNET.Herramienta;
+using FINALASPNET.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace FINALASPNET.Controllers
 {
@@ -7,6 +10,9 @@ namespace FINALASPNET.Controllers
         [Route("Index/{total}")]
         public IActionResult Index(double total)
         {
+            List<Elemento> carrito = Conversor.RecuperarObjeto<List<Elemento>>(HttpContext.Session, "carrito");
+            carrito.Clear();
+            Conversor.GuardarObjeto(HttpContext.Session, "carrito", carrito);
             ViewBag.total = total;
             return View();
         }
