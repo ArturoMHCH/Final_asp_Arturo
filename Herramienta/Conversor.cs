@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace FINALASPNET.Conversor
+namespace FINALASPNET.Herramienta
 {
     public static class Conversor
     {
