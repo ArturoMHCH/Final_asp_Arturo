@@ -1,7 +1,6 @@
-﻿
-
-    @if (ViewBag.vacio == "no")
+﻿@if (ViewBag.vacio == "no")
     {
+        //El carrito no esta nacio y muestro los productos
 <div style="width:600px;">
         <div class="row">
             <div class="col-12">
@@ -54,6 +53,7 @@
 </div>
     }
     else{
+        //El carrito no se ha llenado o esta vacio
         <h1>@ViewBag.vacio</h1>
         <a asp-controller="Home" asp-action="Index"> Ir a Supermercado </a>
     }
