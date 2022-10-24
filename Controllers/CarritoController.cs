@@ -10,22 +10,29 @@ namespace FINALASPNET.Controllers
 {
     public class CarritoController : Controller
     {
-
+        /*
+         En esta parte controla si ingresa al carrito aun sin comprar nada, es decir cuando 
+         carga la vista principal con titulo supermercado, ademas de cuando avisar si se vacia el carrito
+         eliminando todos los productos
+        */
         public IActionResult Index() //Estado del carrito & botón compra
         {
             List<Elemento> carrito = Conversor.RecuperarObjeto<List<Elemento>>(HttpContext.Session, "carrito");
             if (carrito == null)
             {
+                //No se ha llenado nada en el carrito
                 ViewBag.vacio = "No realizo ninguna compra";
             }
             else
             {
                 if (carrito.Count==0)
                 {
+                    //Se ha vaciado el carrito
                     ViewBag.vacio = "Su carrito esta vacio";
                 }
                 else
                 {
+                    //El carrito estacon al menos un producto
                     ViewBag.vacio = "no";
                     ViewBag.carr = carrito;
                     ViewBag.total = carrito.Sum(it => it.producto.precio * it.cantidad);
