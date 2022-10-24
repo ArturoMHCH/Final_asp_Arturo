@@ -4,30 +4,26 @@
 @if (ViewBag.vacio == "no")
     {
         //El carrito no esta nacio y muestro los productos
-<div style="width:600px;">
-        <div class="row">
-            <div class="col-12">
-                <div class="float-right">
-
-                    <table border="1">
+        //Ademas el diseño se ve muy similar al pdf del examen en la alineacion de los enlaces y espacio y otros
+                    <table>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Imagen</th>
-                            <th>Precio</th>
+            <th class="eth2">Nombre</th>
+            <th class="eth2">Imagen</th>
+            <th class="eth2">Precio</th>
 
-                            <th>Cantidad</th>
-                            <th>Acción</th>
-                            <th>Subtotal</th>
+            <th class="eth2">Cantidad</th>
+            <th class="eth2">Acción</th>
+            <th class="eth2">Subtotal</th>
 
                         </tr>
                         @foreach (Elemento item in ViewBag.carr)
                         {
                             <tr valign="top">
                                 <td>@item.producto.nombre</td>
-                                <td><img src="~/imagenes/@item.producto.imagen" width="100" /></td>
+                                <td class="espacio"><img src="~/imagenes/@item.producto.imagen" width="100" /></td>
                                 <td>@item.producto.precio</td>
                                 <td>@item.cantidad</td>
-                                <td><a asp-controller="Carrito" asp-action="Eliminar" asp-route-idprod="@item.producto.id">Eliminar uno</a></td>
+                <td><a asp-controller="Carrito" asp-action="Eliminar" asp-route-idprod="@item.producto.id"><u>Eliminar uno</u></a></td>
 
                                 <td>@(
                                     item.producto.precio * item.cantidad
@@ -35,30 +31,26 @@
 
                             </tr>
                         }
-                        <tr>
-                        <td colspan="5" align="right">Total: </td>
-                        <td>@ViewBag.total</td>
+        <tr>
+            <td class="nulo" colspan="4"></td>
+                        <td class="nopad">Total: </td>
+            <td class="nopad">@ViewBag.total</td>
                     </tr>
-
+        <tr valign="top">
+            <td class="nulo" colspan="4"></td>
+            <td class="nulo" align="center"><a asp-controller="Home" asp-action="Index"><u>Volver atrás</u>  </a></td>
+            <td class="nulo" align="left"><a asp-controller="Fin" asp-action="Index" asp-route-total="@ViewBag.total"><u>Finalizar compra</u></a></td>
+        </tr>
                 </table>
-            </div>
-        </div>
 
-    </div>
-        <div class="row">
-            <div class="col-12">
-                <p align="right">
-                    <a asp-controller="Home" asp-action="Index">Volver atras  </a>
-                    <a asp-controller="Fin" asp-action="Index" asp-route-total="@ViewBag.total">Finalizar compra</a>
-                </p>
-            </div>
-        </div>
-</div>
+                    
+                    
+
     }
     else{
         //El carrito no se ha llenado o esta vacio
         <h1>@ViewBag.vacio</h1>
-        <a asp-controller="Home" asp-action="Index"> Ir a Supermercado </a>
+    <a asp-controller="Home" asp-action="Index"><u>Ir a Supermercado</u> </a>
     }
 
 
